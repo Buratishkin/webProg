@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Lab 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>Новиков Даниил Дмитриевич, P3231, вариант 466903</header>
+
+      <table>
+        <colgroup>
+          <col style="width: 21%" />
+          <col style="width: 40%" />
+          <col style="width: 25%" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th>Ввод данных</th>
+            <th>Координатная плоскость</th>
+            <th>Таблица результата</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+						<form method="POST" action="/fcgi-bin/server.jar" id="data_form">
+							<!-- Ввод X -->
+							<td>
+								<div class="input-group">
+									<label for="x_input">X</label>
+									<input
+										type="text"
+										id="x_input"
+										name="x"
+										placeholder="значение от -3 до 5"
+										required
+									/>
+								</div>
+								<!-- Ввод Y -->
+								<div class="input-group">
+									<label for="y-select">Y</label>
+									<select id="y-select" name="y">
+										<option value="-4">-4</option>
+										<option value="-3">-3</option>
+										<option value="-2">-2</option>
+										<option value="-1">-1</option>
+										<option value="0" selected>0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+								<!-- Ввод R -->
+								<div class="input-group">
+									<label for="r_input">R</label>
+									<input
+										type="text"
+										id="r_input"
+										name="r"
+										placeholder="значение от 1 до 4"
+										required
+									/>
+								</div>
+							</td>
+						</form>
+
+            <!-- Координатная плоскость -->
+            <td rowspan="2" style="text-align: center;">
+              <canvas id="graph_canvas" width="500" height="500"></canvas>
+            </td>
+
+            <!-- Таблица результата -->
+            <td rowspan="2">
+              <div style="max-height: 500px; overflow-y: auto;">
+                <table>
+                  <colgroup>
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: 16%" />
+                    <col style="width: 27%" />
+                    <col style="width: 27%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>X</th>
+                      <th>Y</th>
+                      <th>R</th>
+                      <th>Статус</th>
+                      <th>Текущее время</th>
+                      <th>Время работы</th>
+                    </tr>
+                  </thead>
+                  <tbody id="results_table_body"></tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+					
+					<tr></tr>
+
+          <!-- Кнопка отправки -->
+          <tr>
+            <td colspan="3" style="text-align: center;">
+              <button type="submit" id="submit_button" form="data_form">Отправить</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
