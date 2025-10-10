@@ -4,6 +4,6 @@
 
 *Ответы на вопросы могут быть не точными, лучше смотреть инфу из лекций, а не этот файлик*
 
-[Гайд как запустить лабу](youtu.be/URdECcC25vY?si=gDnlwXY_ncGPDbf7)
+[Гайд как запустить лабу](https://youtu.be/URdECcC25vY?si=gDnlwXY_ncGPDbf7)
 
 ![Внешний вид сайта](https://github.com/Buratishkin/webProg/blob/main/.github/assets/lab1/lab1_photo.jpg)
