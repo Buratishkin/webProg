@@ -1,53 +1,40 @@
 package org.example;
 
-import java.util.LinkedList;
+import org.example.exceptions.ValidateException;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Validator {
-  private final List<Integer> yRange = new LinkedList<>();
-  private String log = "all ok";
+    private final List<Integer> yRange = IntStream
+            .range(1, 10)
+            .boxed()
+            .toList();
 
-  public Validator() {
-    yRange.add(-4);
-    yRange.add(-3);
-    yRange.add(-2);
-    yRange.add(-1);
-    yRange.add(0);
-    yRange.add(1);
-    yRange.add(2);
-    yRange.add(3);
-    yRange.add(4);
-  }
+    public void check(double x, Integer y, double r) throws ValidateException {
+        checkX(x);
+        checkY(y);
+        checkR(r);
 
-  public boolean check(double x, Integer y, double r) {
-    return checkX(x) && checkY(y) && checkR(r);
-  }
-
-  public String getLog() {
-    return log;
-  }
-
-  public boolean checkY(int y) {
-    if (yRange.contains(y)) {
-      return true;
     }
-    log = "Y must be selected";
-    return false;
-  }
 
-  public boolean checkX(double x) {
-    if (-3 <= x && x <= 5) {
-      return true;
+    public void checkY(int y) throws ValidateException {
+        if (yRange.contains(y)) {
+            return;
+        }
+        throw new ValidateException("Y must be selected");
     }
-    log = "X value must be -3<=x<=5";
-    return false;
-  }
 
-  public boolean checkR(double r) {
-    if (1 <= r && r <= 4) {
-      return true;
+    public void checkX(double x) throws ValidateException {
+        if (-3 <= x && x <= 5) {
+            return;
+        }
+        throw new ValidateException("x value must be -3<=x<=5");
     }
-    log = "R value must be 1<=x<=4";
-    return false;
-  }
+
+    public void checkR(double r) throws ValidateException {
+        if (1 <= r && r <= 4) {
+            return;
+        }
+        throw new ValidateException("R value must be 1<=R<=4");
+    }
 }
