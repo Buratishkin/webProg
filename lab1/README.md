@@ -6,4 +6,4 @@
 
 [Гайд как запустить лабу](youtu.be/URdECcC25vY?si=gDnlwXY_ncGPDbf7)
 
-[Внешний вид сайта](https://github.com/Buratishkin/webProg/blob/main/.github/assets/lab1/lab1_photo.jpg)
+![Внешний вид сайта](https://github.com/Buratishkin/webProg/blob/main/.github/assets/lab1/lab1_photo.jpg)
