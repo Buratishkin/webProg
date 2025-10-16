@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>war-lab2</display-name>
+
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>org.example.lab2.Servlets.ControllerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AreaHitServlet</servlet-name>
+        <servlet-class>org.example.lab2.Servlets.AreaHitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AreaHitServlet</servlet-name>
+        <url-pattern>/area-check</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>main</welcome-file>
+    </welcome-file-list>
+
+</web-app>
