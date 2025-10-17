@@ -11,7 +11,6 @@ import org.example.lab2.classes.Validator;
 public class ControllerServlet extends HttpServlet {
   private final String MAIN = "/WEB-INF/views/main_page.jsp";
   private final String AREA_SERV = "/area-check";
-  private Validator v;
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
@@ -34,8 +33,9 @@ public class ControllerServlet extends HttpServlet {
       return;
     }
 
-    v = new Validator(x, y, R);
+    Validator v = new Validator(x, y, R);
     if (!(v.validate() && v.check())) {
+      response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
       request.setAttribute("errors", v.getErrors());
       request.getRequestDispatcher(MAIN).forward(request, response);
     } else {
@@ -48,21 +48,19 @@ public class ControllerServlet extends HttpServlet {
 
   private boolean XYRIsNull(List<String> x, String y, String R, HttpServletRequest request)
       throws ServletException, IOException {
-    boolean pip = false;
     HashMap<String, String> errors = new HashMap<>();
     if (x.isEmpty()) {
       errors.put("x", "Выберите хотя бы один Х");
-      pip = true;
     }
     if (y == null || y.isBlank()) {
       errors.put("y", "Введите Y: 5<=y<=3");
-      pip = true;
     }
     if (R == null || R.isBlank()) {
       errors.put("r", "Выберите R");
-      pip = true;
     }
+
+    boolean flag = !errors.isEmpty();
     request.setAttribute("errors", errors);
-    return pip;
+    return flag;
   }
 }
