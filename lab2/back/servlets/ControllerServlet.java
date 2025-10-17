@@ -29,6 +29,7 @@ public class ControllerServlet extends HttpServlet {
                 .toList();
 
     if (XYRIsNull(x, y, R, request)) {
+      response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
       request.getRequestDispatcher(MAIN).forward(request, response);
       return;
     }
